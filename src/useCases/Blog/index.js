@@ -1,11 +1,12 @@
 const knex = require('../../db/knex')
+const errorMessages = require('../../constants/errorMessages')
 
 function validateBlogProperties (body) {
   const requiredProperties = ['title', 'author', 'publicationDate', 'content']
   const missingProperties = requiredProperties.filter(prop => !(prop in body))
 
   if (missingProperties.length > 0) {
-    throw new Error(`Faltan propiedades requeridas: ${missingProperties.join(', ')}`)
+    throw new Error(errorMessages.missingBlogProperties(missingProperties))
   }
 }
 
@@ -24,7 +25,7 @@ module.exports = {
         .where('activo', 1)
       return response
     } catch (error) {
-      throw new Error(error)
+      throw new Error(errorMessages.listBlogError(error))
     }
   },
   async listBlogById (id) {
@@ -41,11 +42,11 @@ module.exports = {
         .where('activo', 1)
         .andWhere('idBlog', id)
       if (!response) {
-        throw new Error(`No se encontró ningún blog con el ID ${id}`)
+        throw new Error(errorMessages.noBlogFoundById(id))
       }
       return response
     } catch (error) {
-      throw new Error(error.message || 'Error al obtener el blog por ID')
+      throw new Error(error.message || errorMessages.getBlogByIdError)
     }
   },
   async createdBlog (body) {
@@ -59,7 +60,7 @@ module.exports = {
         message: 'Blog creado exitosamente'
       }
     } catch (error) {
-      throw new Error(`Error al crear el blog: ${error.message}`)
+      throw new Error(errorMessages.createBlogError(error))
     }
   },
   async updateBlog (id, body) {
@@ -77,7 +78,7 @@ module.exports = {
         message: 'Blog actualizado exitosamente'
       }
     } catch (error) {
-      throw new Error(`Error al actualizar el blog: ${error.message}`)
+      throw new Error(errorMessages.updateBlogError(error))
     }
   }
 }
