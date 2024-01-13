@@ -1,0 +1,43 @@
+{
+  "name": "api-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "migration:make": "npx knex migrate:make",
+    "migration:run": "npx knex migrate:latest",
+    "seed:make": "npx knex seed:make",
+    "seed:run": "npx knex seed:run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jreyesFoodin/api-blog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jreyesFoodin/api-blog/issues"
+  },
+  "homepage": "https://github.com/jreyesFoodin/api-blog#readme",
+  "dependencies": {
+    "knex": "^3.1.0",
+    "kcors": "^2.2.1",
+    "koa": "^2.5.0",
+    "koa-body": "^2.5.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-helmet": "^4.0.0",
+    "koa-multer": "1.0.2",
+    "koa-router": "^7.4.0",
+    "koa-static-server": "^1.3.4",
+    "mysql2": "^3.1.0",
+    "moment-timezone": "^0.5.17",
+    "dotenv": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "nodemon": "^1.17.4",
+    "standard": "^11.0.1"
+  }
+}
