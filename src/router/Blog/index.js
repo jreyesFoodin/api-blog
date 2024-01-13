@@ -40,4 +40,17 @@ module.exports = (router) => {
       return errorResponse(ctx, error, next)
     }
   })
+  router.put('/Blog/updateBlog', async (ctx, next) => {
+    try {
+      const { body } = ctx.request
+      const { id } = ctx.request.header
+      let payload = await BlogUseCases.updateBlog(id, body)
+      ctx.body = {
+        success: true,
+        ...payload
+      }
+    } catch (error) {
+      return errorResponse(ctx, error, next)
+    }
+  })
 }

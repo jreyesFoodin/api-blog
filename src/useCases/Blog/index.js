@@ -61,5 +61,23 @@ module.exports = {
     } catch (error) {
       throw new Error(`Error al crear el blog: ${error.message}`)
     }
+  },
+  async updateBlog (id, body) {
+    validateBlogProperties(body)
+    try {
+      const updatedRows = await knex('Blog')
+        .where('idBlog', id)
+        .update(body)
+
+      if (updatedRows === 0) {
+        throw new Error(`No se encontró ningún blog con el ID ${id}`)
+      }
+
+      return {
+        message: 'Blog actualizado exitosamente'
+      }
+    } catch (error) {
+      throw new Error(`Error al actualizar el blog: ${error.message}`)
+    }
   }
 }
