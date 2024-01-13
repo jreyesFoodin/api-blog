@@ -1,30 +1,18 @@
-const BlogUseCases = require('../Blog')
+// const knex = require('../../db/knex')
 
-const { errorResponse } = require('../../helpers/formats')
+module.exports = {
+  async listBlog () {
+    try {
 
-module.exports = (router) => {
-  router.get('/Blog/list', async (ctx, next) => {
-    try {
-      let payload = await BlogUseCases.listBlog()
-      ctx.body = {
-        success: true,
-        payload
-      }
-      return next()
     } catch (error) {
-      return errorResponse(ctx, error, next)
+
     }
-  })
-  router.get('/Blog/list/:id', async (ctx, next) => {
+  },
+  async listBlogById () {
     try {
-      let payload = await BlogUseCases.listBlogById()
-      ctx.body = {
-        success: true,
-        payload
-      }
-      return next()
+
     } catch (error) {
-      return errorResponse(ctx, error, next)
+
     }
-  })
+  }
 }

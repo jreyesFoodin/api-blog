@@ -34,3 +34,5 @@ app.use(serve({rootDir: 'public', rootPath: '/public'}))
 app.on('error', (err, ctx) => {
   console.error(`[ERROR] in (${ctx.path}): `, err)
 })
+
+module.exports = app
