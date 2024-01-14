@@ -1,12 +1,13 @@
 
-# Api blog
-
-Es un api donde se integra todo el backend
+# Prueba Api blog
 
 
 ## Tech Stack
 
-**Backend:** Nodejs, Koa, Mysql, Knex
+- Nodejs
+- Koa
+- Mysql
+- Knex
 
 ## Instala el proyecto
 
