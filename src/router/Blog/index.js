@@ -53,4 +53,16 @@ module.exports = (router) => {
       return errorResponse(ctx, error, next)
     }
   })
+  router.put('/Blog/removerBlog', async (ctx, next) => {
+    try {
+      const { id } = ctx.request.header
+      let payload = await BlogUseCases.removerBlog(id)
+      ctx.body = {
+        success: true,
+        ...payload
+      }
+    } catch (error) {
+      return errorResponse(ctx, error, next)
+    }
+  })
 }

@@ -71,7 +71,7 @@ module.exports = {
         .update(body)
 
       if (updatedRows === 0) {
-        throw new Error(`No se encontró ningún blog con el ID ${id}`)
+        throw new Error(errorMessages.noBlogFoundById(id))
       }
 
       return {
@@ -79,6 +79,23 @@ module.exports = {
       }
     } catch (error) {
       throw new Error(errorMessages.updateBlogError(error))
+    }
+  },
+  async removerBlog (id) {
+    try {
+      const removeRows = await knex('Blog')
+        .where('idBlog', id)
+        .update({ activo: 0 })
+
+      if (removeRows === 0) {
+        throw new Error(errorMessages.noBlogFoundById(id))
+      }
+
+      return {
+        message: 'Blog removido exitosamente'
+      }
+    } catch (error) {
+      throw new Error(errorMessages.removeBlogError(error))
     }
   }
 }
