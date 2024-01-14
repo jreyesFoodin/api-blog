@@ -46,10 +46,10 @@ Instalar mi proyecto con npm
 
 | Body | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `title`      | `int` | **Required**. title of item to fetch |
-| `author`      | `int` | **Required**. author of item to fetch |
-| `publicationDate`      | `int` | **Required**. publicationDate of item to fetch |
-| `content`      | `int` | **Required**. content of item to fetch |
+| `title`      | `string` | **Required**. title of item to fetch |
+| `author`      | `string` | **Required**. author of item to fetch |
+| `publicationDate`      | `date` | **Required**. publicationDate of item to fetch |
+| `content`      | `string` | **Required**. content of item to fetch |
 
 
 ####  UpdateBlog
@@ -64,10 +64,10 @@ Instalar mi proyecto con npm
 
 | Body | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `title`      | `int` | **Required**. title of item to fetch |
-| `author`      | `int` | **Required**. author of item to fetch |
-| `publicationDate`      | `int` | **Required**. publicationDate of item to fetch |
-| `content`      | `int` | **Required**. content of item to fetch |
+| `title`      | `string` | **Required**. title of item to fetch |
+| `author`      | `string` | **Required**. author of item to fetch |
+| `publicationDate`      | `date` | **Required**. publicationDate of item to fetch |
+| `content`      | `string` | **Required**. content of item to fetch |
 
 
 ####  RemoverBlog
